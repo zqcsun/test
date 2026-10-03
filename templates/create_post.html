@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+.container {
+max-width: 600px;
+margin: 70px auto;
+background: #262837;
+padding: 35px;
+border-radius: 18px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+h1 {
+text-align: center;
+color: #cdd3ff;
+}
+form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+input, textarea {
+background: #1f2130;
+border: 1px solid #3b3f5c;
+border-radius: 12px;
+padding: 12px;
+color: #e4e6eb;
+font-size: 15px;
+}
+textarea {
+min-height: 150px;
+resize: vertical;
+}
+button {
+background: #3b3f5c;
+color: #ffffff;
+border: none;
+padding: 12px;
+border-radius: 12px;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s;
+}
+button:hover {
+background: #4a4f73;
+}
+.back {
+text-align: center;
+margin-top: 20px;
+}
+.back a {
+color: #9fa7ff;
+text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Створити пост</h1>
+<form method="post">
+{% csrf_token %}
+{{ form.as_p }}
+<button type="submit">Зберегти</button>
+</form>
+<div class="back">
+<a href="{% url 'post_list' %}">← Назад</a>
+</div>
+</div>
+</body>
+</html>
